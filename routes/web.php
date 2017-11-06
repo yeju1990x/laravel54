@@ -13,12 +13,14 @@
 
 Route::get('/posts', 'PostController@index');
 
-Route::get('/posts/{post}', 'App\Http\Controllers\PostController@show');
+Route::get("/posts/create", 'PostController@create');
+Route::post('/posts', 'PostController@store');
 
-Route::get('/posts/create', 'App\Http\Controllers\PostController@create');
-Route::post('/posts', 'App\Http\Controllers\PostController@store');
+Route::get('/posts/{post}', 'PostController@show');
 
-Route::get('/posts/{post}/edit', 'App\Http\Controllers\PostController@edit');
-Route::put('/posts/{post}', 'App\Http\Controllers\PostController@update');
+Route::get('/posts/{post}/edit', 'PostController@edit');
+Route::put('/posts/{post}', 'PostController@update');
 
-Route::get('/posts/delete', 'App\Http\Controllers\PostController@delete');
+Route::get('/posts/delete', 'PostController@delete');
+
+Route::post('/posts/image/upload', 'PostController@imageUpload');
